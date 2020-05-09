@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Examen</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="sketch.js"></script>
+	<script src="puntoPendiente.js"></script>
+	<script src="dda.js"></script>
+	<script src="bresenham.js"></script>
+
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			overflow: hidden;
+
+			font-family: 'Segoe Print', sans-serif;
+			width: 100%;
+			background-image: linear-gradient(to bottom, #F1DFA8, #E26E09);
+			background-repeat: no-repeat;
+			height: 100vh; /*18-02-2019 Fuerza del color del fondo (no de la imagen)*/
+		}
+		canvas {
+			margin:auto;
+		}
+		.bloc {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			/*background-color: red;*/
+			margin-bottom: 10px;
+		}
+		.boton {
+			font-family: 'Segoe Print', sans-serif;
+			text-align: center;
+			font-size: 90%;
+			color: white;
+			/*width: 30%;*/
+			border-radius: 40px;
+			border: none;
+			background-image: linear-gradient(to bottom, #F93604, #AC6302);
+			/*margin: 0 auto;*/
+			cursor: pointer; /*10/03/2019 Pone el cursor manita*/
+		}
+		.modulo {
+			width: 10%;
+			height: 40px;
+			font-family: 'Segoe Print', sans-serif;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="bloc">
+			<h2 class="letraTipoUno">Número de partes a cortar la figura</h2>
+		</div>
+		
+		<div class="bloc">
+			<input class="modulo" type="number" min="1" pattern="^[0-9]+" id="nPartes" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+		</div>
+
+		<div class="bloc">
+			<button class="boton" onclick="document.location.reload();"> <span>Reiniciar</span></button>
+			<button class="boton" onclick="cortarFigura()"> <span>Cortar</span></button>
+		</div>
+	</div>
+</body>
+
+</html>
